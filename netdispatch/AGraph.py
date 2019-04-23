@@ -23,7 +23,7 @@ class AGraph(object):
         if self.tp == 0:
             return self.graph.nodes()
         elif self.tp == 1:
-            return [self.graph.vs[x]['name'] for x in self.graph.vs]
+            return self.graph.vs['name']
         else:
             raise ValueError("Graph model not supported")
 
