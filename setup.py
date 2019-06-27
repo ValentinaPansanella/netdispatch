@@ -42,6 +42,9 @@ setup(name='netdispatch',
           'Programming Language :: Python :: 3'
       ],
       keywords='complex-networks',
-      install_requires=['networkx', 'python-igraph', ''],
+      install_requires=['networkx',  ''],
+      extras_require={
+          'C':  ["python-igraph"],
+      },
       packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test", "netdispatch.test", "netdispatch.test.*"]),
       )

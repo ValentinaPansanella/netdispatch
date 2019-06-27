@@ -5,7 +5,11 @@ __email__ = "giulio.rossetti@gmail.com"
 
 import unittest
 import networkx as nx
-import igraph as ig
+try:
+    import igraph as ig
+except ModuleNotFoundError:
+    ig = None
+
 from netdispatch import AGraph
 
 
@@ -16,10 +20,11 @@ def from_nx_to_igraph(g, directed=False):
     :param directed:
     :return:
     """
-    gi = ig.Graph(directed=directed)
-    gi.add_vertices(list(g.nodes()))
-    gi.add_edges(list(g.edges()))
-    return gi
+    if ig is not None:
+        gi = ig.Graph(directed=directed)
+        gi.add_vertices(list(g.nodes()))
+        gi.add_edges(list(g.edges()))
+        return gi
 
 
 class AGTest(unittest.TestCase):

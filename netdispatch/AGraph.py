@@ -1,5 +1,8 @@
 import networkx as nx
-import igraph as ig
+try:
+    import igraph as ig
+except ModuleNotFoundError:
+    ig = None
 
 
 class AGraph(object):
@@ -12,7 +15,7 @@ class AGraph(object):
         if isinstance(self.graph, nx.Graph):
             self.directed = nx.is_directed(self.graph)
             self.tp = 0
-        elif isinstance(self.graph, ig.Graph):
+        elif ig is not None and isinstance(self.graph, ig.Graph):
             self.directed = self.graph.is_directed()
             self.tp = 1
         else:
