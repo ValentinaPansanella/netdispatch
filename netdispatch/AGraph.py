@@ -88,3 +88,17 @@ class AGraph(object):
             nodes = self.graph.vs[attribute]
             res = {self.graph.vs[x]['name']: x[attribute] for x in nodes}
             return res
+
+    def add_edges(self, node, endpoints):
+        if self.tp == 0:
+            self.graph.add_edges_from([(node, v) for v in endpoints])
+        if self.tp == 1:
+            self.graph.add_edges([(self.graph.vs[node]['name'], self.graph.vs[v]['name']) for v in endpoints])
+
+    def remove_edges(self, node, endpoints):
+        if self.tp == 0:
+            self.graph.remove_edges_from([(node, v) for v in endpoints])
+        if self.tp == 1:
+            for v in endpoints:
+                eid = self.graph.get_eid(self.graph.vs[node]['name'], self.graph.vs[v]['name'])
+                self.graph.delete_edges(eid)
