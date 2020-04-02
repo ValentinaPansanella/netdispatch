@@ -43,7 +43,7 @@ class AGraph(object):
         if self.tp == 0:
             return self.graph.number_of_nodes()
         elif self.tp == 1:
-            return len([self.graph.vs])
+            return self.graph.vcount()
         else:
             raise ValueError("Graph model not supported")
 
