@@ -29,6 +29,16 @@ def from_nx_to_igraph(g, directed=False):
 
 class AGTest(unittest.TestCase):
 
+    def test_number_of_edges(self):
+        g = nx.karate_club_graph()
+        ag = AGraph(g)
+        n1 = ag.number_of_edges()
+
+        g = from_nx_to_igraph(g)
+        ag = AGraph(g)
+        n2 = ag.number_of_edges()
+        self.assertEqual(n1, n2)
+
     def test_neighbors(self):
         g = nx.karate_club_graph()
         ag = AGraph(g)

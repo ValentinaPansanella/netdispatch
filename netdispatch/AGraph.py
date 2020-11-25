@@ -47,6 +47,14 @@ class AGraph(object):
         else:
             raise ValueError("Graph model not supported")
 
+    def number_of_edges(self):
+        if self.tp == 0:
+            return self.graph.number_of_edges()
+        elif self.tp == 1:
+            return self.graph.ecount()
+        else:
+            raise ValueError("Graph model not supported")
+
     def neighbors(self, node):
         if not self.directed:
             if self.tp == 0:
