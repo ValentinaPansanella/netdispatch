@@ -49,6 +49,16 @@ class AGTest(unittest.TestCase):
         n2 = ag.neighbors(1)
         self.assertListEqual(n1, n2)
 
+    def test_has_edge(self):
+        g = nx.karate_club_graph()
+        ag = AGraph(g)
+        n1 = ag.has_edge(0, 1)
+
+        g = from_nx_to_igraph(g)
+        ag = AGraph(g)
+        n2 = ag.has_edge(0, 1)
+        self.assertEqual(n1, n2)
+
     def test_predecessors(self):
         g = nx.karate_club_graph()
         g1 = nx.to_directed(g)

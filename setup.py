@@ -14,7 +14,7 @@ __email__ = "giulio.rossetti@gmail.com"
 
 
 setup(name='netdispatch',
-      version='0.0.6',
+      version='0.0.7',
       license='BSD-Clause-2',
       description='Network Dispatcher',
       url='https://github.com/GiulioRossetti/netdispatch',

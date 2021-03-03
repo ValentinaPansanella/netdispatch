@@ -47,6 +47,15 @@ class AGraph(object):
         else:
             raise ValueError("Graph model not supported")
 
+    def has_edge(self, u, v):
+        if self.tp == 0:
+            return self.graph.has_edge(u, v)
+        elif self.tp == 1:
+            e = self.graph.get_eid(u, v)
+            return e != -1
+        else:
+            raise ValueError("Graph model not supported")
+
     def number_of_edges(self):
         if self.tp == 0:
             return self.graph.number_of_edges()
