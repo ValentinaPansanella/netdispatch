@@ -4,6 +4,8 @@ try:
 except ModuleNotFoundError:
     ig = None
 
+#aggiungo un commento solo x vedere se vede i cambiamenti
+
 
 class AGraph(object):
 
