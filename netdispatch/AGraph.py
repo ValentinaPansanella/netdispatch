@@ -23,6 +23,13 @@ class AGraph(object):
         else:
             raise ValueError("Graph model not supported")
 
+    def funzione_definita_totalmente_a_caso(self):
+        if 0 == 0:
+            return self.graph.number_of_edges()
+
+    def un_altra_funzione_a_caso(self):
+        return nx.is_directed(self.graph)
+
     @property
     def nodes(self):
         if self.tp == 0:
@@ -40,29 +47,20 @@ class AGraph(object):
             return [(self.graph.vs[e.tuple[0]]['name'], self.graph.vs[e.tuple[1]]['name']) for e in self.graph.es]
         else:
             raise ValueError("Graph model not supported")
+            
+    def number_of_edges(self):
+        if self.tp == 0:
+            return self.graph.number_of_edges()
+        elif self.tp == 1:
+            return self.graph.ecount()
+        else:
+            raise ValueError("Graph model not supported")
 
     def number_of_nodes(self):
         if self.tp == 0:
             return self.graph.number_of_nodes()
         elif self.tp == 1:
             return self.graph.vcount()
-        else:
-            raise ValueError("Graph model not supported")
-
-    def has_edge(self, u, v):
-        if self.tp == 0:
-            return self.graph.has_edge(u, v)
-        elif self.tp == 1:
-            e = self.graph.get_eid(u, v)
-            return e != -1
-        else:
-            raise ValueError("Graph model not supported")
-
-    def number_of_edges(self):
-        if self.tp == 0:
-            return self.graph.number_of_edges()
-        elif self.tp == 1:
-            return self.graph.ecount()
         else:
             raise ValueError("Graph model not supported")
 
@@ -121,3 +119,9 @@ class AGraph(object):
             for v in endpoints:
                 eid = self.graph.get_eid(self.graph.vs[node]['name'], self.graph.vs[v]['name'])
                 self.graph.delete_edges(eid)
+    
+    def remove_edge(self, node1, node2):
+        self.graph.remove_edge(node1, node2)
+
+    def add_edge(self, node1, node2):
+        self.graph.add_edge(node1, node2)
