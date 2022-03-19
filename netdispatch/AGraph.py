@@ -119,9 +119,3 @@ class AGraph(object):
             for v in endpoints:
                 eid = self.graph.get_eid(self.graph.vs[node]['name'], self.graph.vs[v]['name'])
                 self.graph.delete_edges(eid)
-    
-    def remove_edge(self, node1, node2):
-        self.graph.remove_edge(node1, node2)
-
-    def add_edge(self, node1, node2):
-        self.graph.add_edge(node1, node2)
