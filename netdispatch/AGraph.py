@@ -119,3 +119,8 @@ class AGraph(object):
             for v in endpoints:
                 eid = self.graph.get_eid(self.graph.vs[node]['name'], self.graph.vs[v]['name'])
                 self.graph.delete_edges(eid)
+    
+    def write_graph(self, filename):
+        G = self.graph
+        with open(filename, "wb") as file:
+            nx.write_edgelist(G, file, delimiter=",")
